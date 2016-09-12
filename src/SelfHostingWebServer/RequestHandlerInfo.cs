@@ -27,6 +27,13 @@ namespace SelfHostingWebServer
             CreateParametersRegex();
         }
 
+        public string Path
+        {
+            get
+            {
+                return _path;
+            }
+        }
 
         public object GetResult(Context context)
         {
@@ -66,10 +73,10 @@ namespace SelfHostingWebServer
                 if (name == "*fullPath")
                 {
                     var pos = temp.IndexOf(m.Value);
-                    temp = temp.Substring(0, pos) + @"(?<__fullPath__>.+)";
+                    temp = temp.Substring(0, pos) + @"(?<__fullPath__>.*)";
                     break;
                 }
-                temp = temp.Replace(m.Value, @"(?<" + name + @">[^/]+)");
+                temp = temp.Replace(m.Value, @"(?<" + name + @">[^/]*)");
             }
             _parametersRegex = new Regex(temp);
             _groupNames = new List<string>(_parametersRegex.GetGroupNames());

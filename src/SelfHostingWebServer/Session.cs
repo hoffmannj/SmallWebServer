@@ -19,7 +19,7 @@ namespace SelfHostingWebServer
             _timeout = TimeSpan.FromHours(1);
         }
 
-        public void SetTimeOut(TimeSpan newTimeOut)
+        internal void SetTimeOut(TimeSpan newTimeOut)
         {
             lock (_locker)
             {
@@ -28,7 +28,7 @@ namespace SelfHostingWebServer
             }
         }
 
-        public bool IsTimedOut()
+        internal bool IsTimedOut()
         {
             lock (_locker)
             {
@@ -36,7 +36,7 @@ namespace SelfHostingWebServer
             }
         }
 
-        public void Touch()
+        internal void Touch()
         {
             lock (_locker)
             {

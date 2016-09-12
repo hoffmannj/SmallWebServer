@@ -2,16 +2,16 @@
 
 namespace SelfHostingWebServer
 {
-    public class Request
+    public sealed class Request
     {
         public HttpListenerRequest OriginalRequest { get; private set; }
-        public string QueryString { get; private set; }
+        public string PathAndQueryString { get; private set; }
         public string BodyString { get; private set; }
 
         public Request(HttpListenerRequest originalRequest)
         {
             OriginalRequest = originalRequest;
-            QueryString = originalRequest.QueryString.ToString();
+            PathAndQueryString = originalRequest.Url.PathAndQuery;
         }
 
         internal void SetBodyString(string bodyString)

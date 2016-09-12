@@ -22,7 +22,7 @@ namespace SelfHostingWebServer.Handler
         {
             lock (_locker)
             {
-                return _handlers.Where(handler => handler.IsMatch(uri, method)).FirstOrDefault();
+                return _handlers.OrderByDescending(handler => handler.Path.Length).Where(handler => handler.IsMatch(uri, method)).FirstOrDefault();
             }
         }
     }

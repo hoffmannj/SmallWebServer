@@ -3,7 +3,7 @@ using System;
 
 namespace SelfHostingWebServer
 {
-    public class Router
+    public sealed class Router
     {
         private RequestHandlerStore _requestHandlerStore;
 

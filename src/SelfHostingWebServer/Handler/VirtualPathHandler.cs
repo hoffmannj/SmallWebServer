@@ -4,7 +4,7 @@ using System.IO;
 
 namespace SelfHostingWebServer.Handler
 {
-    internal sealed class VirtualPathHandler
+    public sealed class VirtualPathHandler
     {
         private string _basePath = string.Empty;
 

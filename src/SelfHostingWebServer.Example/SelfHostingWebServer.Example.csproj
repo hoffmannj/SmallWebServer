@@ -4,16 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9912ACB0-E0D8-4F76-AB99-F89A95DA0161}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{41B13E47-20E5-4DB4-BC05-3D0CFCC702BD}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SelfHostingWebServer</RootNamespace>
-    <AssemblyName>SelfHostingWebServer</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>SelfHostingWebServer.Example</RootNamespace>
+    <AssemblyName>SelfHostingWebServer.Example</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -31,10 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -45,33 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Context.cs" />
-    <Compile Include="Exceptions\ErrorCodeException.cs" />
-    <Compile Include="HandlerEventArgs\PostProcessHandlerEventArgs.cs" />
-    <Compile Include="HandlerEventArgs\PreProcessHandlerEventArgs.cs" />
-    <Compile Include="HandlerEventArgs\ProcessErrorHandlerEventArgs.cs" />
-    <Compile Include="Handler\HttpRequestHandler.cs" />
-    <Compile Include="Handler\RequestHandlerStore.cs" />
-    <Compile Include="Helper\HttpUtility.cs" />
-    <Compile Include="Helper\Tcp.cs" />
-    <Compile Include="Implementations\DefaultSerializer.cs" />
-    <Compile Include="Interfaces\ISerializer.cs" />
-    <Compile Include="Listener.cs" />
-    <Compile Include="Request.cs" />
-    <Compile Include="RequestHandlerInfo.cs" />
-    <Compile Include="Router.cs" />
-    <Compile Include="ServerParameters.cs" />
-    <Compile Include="Session.cs" />
-    <Compile Include="Handler\SessionHandler.cs" />
-    <Compile Include="Handler\VirtualPathHandler.cs" />
-    <Compile Include="WebMethod.cs" />
-    <Compile Include="WebServer.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\SelfHostingWebServer\SelfHostingWebServer.csproj">
+      <Project>{9912acb0-e0d8-4f76-ab99-f89a95da0161}</Project>
+      <Name>SelfHostingWebServer</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

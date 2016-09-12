@@ -3,7 +3,7 @@ using System.Net.Sockets;
 
 namespace SelfHostingWebServer.Helper
 {
-    static class Tcp
+    internal static class Tcp
     {
         public static int GetFreeTcpPort()
         {

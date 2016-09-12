@@ -8,7 +8,7 @@ using System.Text;
 
 namespace SelfHostingWebServer.Helper
 {
-    public sealed class HttpUtility // https://github.com/mono/mono/tree/master/mcs/class/System.Web
+    internal sealed class HttpUtility // https://github.com/mono/mono/tree/master/mcs/class/System.Web
     {
 
         public static void HtmlAttributeEncode(string s, TextWriter output)

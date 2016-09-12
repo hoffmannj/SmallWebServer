@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace SelfHostingWebServer
 {
-    public class Context
+    public sealed class Context
     {
         public Request Request { get; private set; }
         public IReadOnlyDictionary<string, object> QueryParameters { get; private set; }
